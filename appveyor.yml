@@ -1,19 +1,7 @@
 image:
  - Visual Studio 2017
  - Ubuntu
-
-environment:
-  matrix:
-    - ARCH: arm
-    - ARCH: arm64
-    - ARCH: amd64
-
-matrix:
-  exclude:
-    - image: Visual Studio 2017
-      ARCH: arm
-    - image: Visual Studio 2017
-      ARCH: arm64
+ - macos
 
 
 build_script:
