@@ -19,5 +19,5 @@ matrix:
 build_script:
 - mkdir build
 - cd build
-- cmake .. -G "Visual Studio 15"
+- cmake ..
 - cmake --build . --config "Debug"
