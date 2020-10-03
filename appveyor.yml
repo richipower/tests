@@ -1,7 +1,20 @@
 image:
  - Visual Studio 2017
+ - Ubuntu
 
-clone_folder: C:\project\source
+environment:
+  matrix:
+    - ARCH: arm
+    - ARCH: arm64
+    - ARCH: amd64
+
+matrix:
+  exclude:
+    - image: Visual Studio 2017
+      ARCH: arm
+    - image: Visual Studio 2017
+      ARCH: arm64
+
 
 build_script:
 - mkdir build
