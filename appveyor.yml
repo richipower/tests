@@ -5,7 +5,7 @@ clone_folder: C:\project\source
 
 build_script:
 - cmd: >-
-mkdir build
-cd build
-cmake .. -G "Visual Studio 15"
-cmake --build . --config "Debug"
+ mkdir build
+ cd build
+ cmake .. -G "Visual Studio 15"
+ cmake --build . --config "Debug"
