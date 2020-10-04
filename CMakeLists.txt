@@ -1,17 +1,14 @@
 cmake_minimum_required(VERSION 3.3)
 
-
+project(test_Project)
 add_executable(test_Project main.cpp)
-
 
 if(WIN32)
     message( "Current generator: ${CMAKE_GENERATOR}" )
     set(CMAKE_GENERATOR "Visual Studio 15")
 else()
     message( "Current generator: ${CMAKE_GENERATOR}" )
-    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/3rdparty/opencv/")
     set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/lib/cmake/opencv4")
-    message("OpenCV_DIR ${OpenCV_DIR}")
     set(CMAKE_GENERATOR "Unix Makefiles")
 endif()
 
