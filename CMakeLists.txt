@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.3)
 
 project(test_Project)
-add_executable(test_Project main.cpp)
+
+file(GLOB SOURCES
+    src/*.cpp)
+
+add_executable(test_Project ${SOURCES})
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 if(WIN32)
     message( "Current generator: ${CMAKE_GENERATOR}" )
