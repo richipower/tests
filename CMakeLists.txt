@@ -10,7 +10,8 @@ if(WIN32)
 else()
     message( "Current generator: ${CMAKE_GENERATOR}" )
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/3rdparty/opencv/")
-    set(OPENCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/lib/cmake/opencv4"
+    set(OPENCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/lib/cmake/opencv4")
+    message("OPENCV_DIR ${CMAKE_SOURCE_DIR}")
     set(CMAKE_GENERATOR "Unix Makefiles")
 endif()
 
