@@ -8,9 +8,6 @@ environment:
     only: image: Visual Studio 2019
     - GENERATOR: "Visual Studio 16"
   
-  matrix:
-    only: image: macos
-    - GENERATOR: "Unix Makefiles"
 
 matrix:
   fast_finish: true
