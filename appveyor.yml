@@ -2,6 +2,8 @@ image:
  - macos
  - Visual Studio 2019
 
+for:
+-
 matrix:
   only:
   - image: Visual Studio 2019
