@@ -1,21 +1,40 @@
 
-# - Set the environment 3-cases Windows/Ubuntu/MacOS
+# - Set the environment 2-JOBS Windows / MacOS
 
 environment:
   matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      GENERATOR: "Visual Studio 15"
-    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-      GENERATOR: "Unix Makefiles"
-    - APPVEYOR_BUILD_WORKER_IMAGE: macOS
-      GENERATOR: "Unix Makefiles"
 
-#matrix:
-#  fast_finish: true
+  - job_name: Windows build
+    appveyor_build_worker_image: Visual Studio 2019
 
+  - job_name: MacOs build
+    appveyor_build_worker_image: MacOs
 
-build_script:
-- mkdir build
-- cd build
-- cmake .. -G "%GENERATOR%"
-- cmake --build . --config "Debug"
+matrix:
+  fast_finish: false
+
+init:
+  - appveyor version
+
+# - JOB-specific configurations
+for:
+
+  -
+    matrix:
+      only:
+        - job_name: Windows build
+          GENERATOR: "Visual Studio 15"
+
+    build_script:
+    - cmd: echo This is Windows-specific build script
+    - echo %GENERATOR%
+
+  -
+    matrix:
+      only:
+        - job_name: MacOs build
+          GENERATOR: "Unix Makefiles"
+
+    build_script:
+    - sh: echo This is MacOs-specific build script
+    - echo %GENERATOR%
