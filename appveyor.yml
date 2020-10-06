@@ -3,11 +3,12 @@ image:
  - Visual Studio 2019
 
 for:
-- matrix:
-  only:
-  - image: Visual Studio 2019
-    environment:
-    generator: Visual Studio 16
+-
+  matrix:
+    only:
+    - image: Visual Studio 2019
+      environment:
+      generator: Visual Studio 16
 
 
 build_script:
