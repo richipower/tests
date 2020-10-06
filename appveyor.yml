@@ -1,12 +1,21 @@
-image:
-  - Visual Studio 2019
-  - macos
+
+environment:
+  matrix:
+  - job_name: Windows build
+    appveyor_build_worker_image: Visual Studio 2019
+
+  - job_name: MacOS build
+    appveyor_build_worker_image: macos
+
+matrix:
+  allow_failures:
+    - image: Visual Studio 2019
 
 for:
 -
   matrix:
     only:
-      - image: macos
+      - job_name: MacOS build
   build_script:
   - echo MacOs build script
   - mkdir build && cd build
@@ -17,9 +26,7 @@ for:
 -
   matrix:
     only:
-      - image: Visual Studio 2019
-    allow_failures:
-      - image: Visual Studio 2019
+      - job_name: Windows build
 
   build_script:
   - echo Windows build script
