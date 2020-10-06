@@ -3,14 +3,13 @@ image:
  - macos
 
 
+environment:
+ matrix:
+  - image: Visual Studio 2019
+    GENERATOR: "Visual Studio 16"
+  - image: macos
+    GENERATOR: "Unix Makefiles"
 
-for:
--
-  matrix:
-    only: 
-      - image: Visual Studio 2019
-    - GENERATOR: "Visual Studio 16"
-  
 
 matrix:
   fast_finish: true
