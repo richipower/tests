@@ -3,8 +3,7 @@ image:
  - Visual Studio 2019
 
 for:
--
-matrix:
+- matrix:
   only:
   - image: Visual Studio 2019
     environment:
