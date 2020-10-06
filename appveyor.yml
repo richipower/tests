@@ -8,13 +8,15 @@ for:
     only:
     - image: Visual Studio 2019
       environment:
-      generator: Visual Studio 16
+      generator: "Visual Studio 16"
+      dsed: rrrrrrrrrr
 
 
 build_script:
 - mkdir build
 - cd build
-- echo $generator$
+- echo %generator%
+- echo %dsed%
 - echo "%generaator%"
 - echo generator
 - cmake .. -G %generator%
