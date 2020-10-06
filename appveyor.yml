@@ -2,13 +2,18 @@ image:
  - macos
  - Visual Studio 2019
 
-environment:
+for:
+-
   matrix:
-    - generator: "Visual Studio 16"
-    - generator: "Unix Makefiles"
+    only:
+      - image: Visual Studio 2019
+        generator: "Visual Studio 16"
+
+      - image: macos
+        generator: "Unix Makefiles"
 
 build_script:
 - mkdir build
 - cd build
-- cmake .. -G generator
+- cmake .. -G %generator%
 - cmake --build . --config "Debug"
