@@ -3,37 +3,14 @@
 
 environment:
   matrix:
+    - job_name: Windows Build
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      GENERATOR: Visual Studio 16
 
-  - job_name: Windows build
-    appveyor_build_worker_image: Visual Studio 2019
+    - job_name: MacOS Build
+      APPVEYOR_BUILD_WORKER_IMAGE: macOS
+      GENERATOR: Unix Makefiles
 
-  - job_name: MacOs build
-    appveyor_build_worker_image: MacOs
-
-matrix:
-  fast_finish: false
-
-init:
-  - appveyor version
-
-# - JOB-specific configurations
-for:
-
-  -
-    matrix:
-      only:
-        - job_name: Windows build
-          GENERATOR: "Visual Studio 16"
-
-    build_script:
-    - echo This is Windows-specific build script
-    - echo %GENERATOR%
-
-  -
-    matrix:
-      only:
-        - job_name: MacOs build
-          GENERATOR: "Unix Makefiles"
 
 build_script:
 - echo "%GENERATOR%"
