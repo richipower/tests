@@ -1,40 +1,27 @@
+image:
+  - Visual Studio 2019
+  - macos
 
-# - Set the environment 2-JOBS Windows / MacOS
-
-environment:
-  matrix:
-  - job_name: Windows build
-    appveyor_build_worker_image: Visual Studio 2019
-
-  - job_name: MacOS build
-    appveyor_build_worker_image: macos
-
-matrix:
-  fast_finish: false
-
-
-# job-specific configurations
 for:
+-
+  matrix:
+    only:
+      - image: macos
+  build_script:
+  - echo MacOs build script
+  - mkdir build && cd build
+  - cmake .. -G "Unix Makefiles"
+  - cmake --build . --config "Debug"
+  - ls
 
-  -
-    matrix:
-      only:
-        - job_name: Windows build
-
-    build_script:
-    - mkdir build
-    - cd build
-    - cmake .. -G "Visual Studio 16"
-    - cmake --build . --config "Debug"
-
-  -
-    matrix:
-      only:
-        - job_name: MacOS build
-
-    build_script:
-    - mkdir build
-    - cd build
-    - cmake .. -G "Unix Makefiles"
-    - cmake --build . --config "Debug"
-
+-
+  matrix:
+    only:
+      - image: Visual Studio 2019
+  build_script:
+  - echo Windows build script
+  - mkdir build
+  - cd build
+  - cmake .. -G "Visual Studio 16"
+  - cmake --build . --config "Debug"
+  - dir
