@@ -3,14 +3,14 @@ image:
  - Visual Studio 2019
 
 matrix:
-    only:
-      - image: Visual Studio 2019
-        environment: generator: "Visual Studio 16"
+  only:
+  - image: Visual Studio 2019
+    environment: generator: Visual Studio 16
 
 matrix:
-    only:
-      - image: macos
-        environment: generator: "Unix Makefiles"
+  only:
+  - image: macos
+    environment: generator: Unix Makefiles
 
 build_script:
 - mkdir build
