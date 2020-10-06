@@ -23,10 +23,10 @@ for:
     matrix:
       only:
         - job_name: Windows build
-          GENERATOR: "Visual Studio 15"
+          GENERATOR: "Visual Studio 16"
 
     build_script:
-    - cmd: echo This is Windows-specific build script
+    - echo This is Windows-specific build script
     - echo %GENERATOR%
 
   -
@@ -35,6 +35,9 @@ for:
         - job_name: MacOs build
           GENERATOR: "Unix Makefiles"
 
-    build_script:
-    - sh: echo This is MacOs-specific build script
-    - echo %GENERATOR%
+build_script:
+- echo "%GENERATOR%"
+- mkdir build
+- cd build
+- cmake .. -G "%GENERATOR%"
+- cmake --build . --config "Debug"
