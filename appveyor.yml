@@ -11,8 +11,8 @@ for:
         generator: "Visual Studio 16"
 
       - image: macos
-        environment: 
-          generator: "Unix Makefiles"
+        environment:
+        generator: "Unix Makefiles"
 
 build_script:
 - mkdir build
