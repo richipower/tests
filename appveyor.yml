@@ -18,6 +18,8 @@ for:
   matrix:
     only:
       - image: Visual Studio 2019
+    allow_failures:
+      - image: Visual Studio 2019
   build_script:
   - echo Windows build script
   - mkdir build
