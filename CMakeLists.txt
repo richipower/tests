@@ -1,6 +1,15 @@
-cmake_minimum_required(VERSION 3.3)
+
+message( "Starting Script - Current generator: ${CMAKE_GENERATOR}" )
 
 project(test_Project)
+cmake_minimum_required(VERSION 3.3)
+
+if(WIN32)
+    set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/win")
+else()
+    set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/osx/lib/cmake/opencv4")
+endif()
+
 
 file(GLOB SOURCES
     src/*.cpp)
@@ -8,14 +17,6 @@ file(GLOB SOURCES
 add_executable(test_Project ${SOURCES})
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-if(WIN32)
-    message( "Current generator: ${CMAKE_GENERATOR}" )
-    set(CMAKE_GENERATOR "Visual Studio 15")
-else()
-    message( "Current generator: ${CMAKE_GENERATOR}" )
-    set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/3rdparty/opencv/lib/cmake/opencv4")
-    set(CMAKE_GENERATOR "Unix Makefiles")
-endif()
 
 find_package(OpenCV REQUIRED)
 
