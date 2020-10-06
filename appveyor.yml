@@ -14,9 +14,5 @@ matrix:
 build_script:
 - mkdir build
 - cd build
-- echo %GENERATOR%
-- echo %dsed%
-- echo "%GENERATOR%"
-- echo GENERATOR
-- cmake .. -G "%GENERATOR%""
+- cmake .. -G "%GENERATOR%"
 - cmake --build . --config "Debug"
