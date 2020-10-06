@@ -9,7 +9,7 @@ environment:
 
 matrix:
   allow_failures:
-    - image: Visual Studio 2019
+    - job_name: Windows build
 
 for:
 -
