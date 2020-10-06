@@ -2,14 +2,12 @@ image:
  - macos
  - Visual Studio 2019
 
-for:
--
+environment:
   matrix:
-    only:
-    - image: Visual Studio 2019
-      environment:
-      generator: "Visual Studio 16"
-      dsed: rrrrrrrrrr
+    - generator: "Visual Studio 16"
+
+matrix:
+  fast_finish: true
 
 
 build_script:
@@ -19,5 +17,5 @@ build_script:
 - echo %dsed%
 - echo "%generaator%"
 - echo generator
-- cmake .. -G %generator%
+- cmake .. -G "%generator%""
 - cmake --build . --config "Debug"
