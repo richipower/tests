@@ -3,12 +3,13 @@ image:
  - macos
 
 
-environment:
+
 for:
 -
   matrix:
     only: 
       image: Visual Studio 2019
+    environment:
     GENERATOR: "Visual Studio 16"
   
 
