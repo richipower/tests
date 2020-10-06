@@ -6,18 +6,20 @@ environment:
     - job_name: Windows Build
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
       GENERATOR: Visual Studio 16
+  build_script:
+  - mkdir build
+  - cd build
+  - cmake .. -G "%GENERATOR%"
+  - cmake --build . --config "Debug"
 
     - job_name: MacOS Build
       APPVEYOR_BUILD_WORKER_IMAGE: macOS
       GENERATOR: Unix Makefiles
+  build_script:
+  - mkdir build
+  - cd build
+  - cmake .. -G "$GENERATOR$"
+  - cmake --build . --config "Debug"
 
 
-build_script:
-- echo "%GENERATOR%"
-- echo "%job_name%"
-- echo "$GENERATOR$"
-- echo "$job_name$"
-- mkdir build
-- cd build
-- cmake .. -G "%GENERATOR%"
-- cmake --build . --config "Debug"
+
