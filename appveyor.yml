@@ -10,5 +10,5 @@ environment:
 build_script:
 - mkdir build
 - cd build
-- cmake .. -G "%generator%"
+- cmake .. -G generator
 - cmake --build . --config "Debug"
