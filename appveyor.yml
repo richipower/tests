@@ -2,12 +2,12 @@ image:
  - macos
  - Visual Studio 2019
 
-- matrix:
+matrix:
     only:
       - image: Visual Studio 2019
         environment: generator: "Visual Studio 16"
 
-- matrix:
+matrix:
     only:
       - image: macos
         environment: generator: "Unix Makefiles"
