@@ -8,11 +8,6 @@ matrix:
     environment:
     generator: Visual Studio 16
 
-matrix:
-  only:
-  - image: macos
-    environment:
-    generator: Unix Makefiles
 
 build_script:
 - mkdir build
