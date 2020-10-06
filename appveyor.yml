@@ -1,14 +1,14 @@
-image:
- - Visual Studio 2019
- - macos
 
+# - Set the environment 3-cases Windows/Ubuntu/MacOS
 
 environment:
- matrix:
-  - image: Visual Studio 2019
-    GENERATOR: "Visual Studio 16"
-  - image: macos
-    GENERATOR: "Unix Makefiles"
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      GENERATOR: "Visual Studio 15"
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+      GENERATOR: "Unix Makefiles"
+    - APPVEYOR_BUILD_WORKER_IMAGE: macOS
+      GENERATOR: "Unix Makefiles"
 
 #matrix:
 #  fast_finish: true
