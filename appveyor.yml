@@ -7,10 +7,12 @@ for:
   matrix:
     only:
       - image: Visual Studio 2019
-        generator: "Visual Studio 16"
+        environment: 
+          generator: "Visual Studio 16"
 
       - image: macos
-        generator: "Unix Makefiles"
+        environment: 
+          generator: "Unix Makefiles"
 
 build_script:
 - mkdir build
